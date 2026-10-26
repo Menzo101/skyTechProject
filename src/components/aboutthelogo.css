@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@500;700;800&display=swap");
+
+.about-logo {
+    --about-logo-heading-font: "Roboto", Arial, sans-serif;
+    --about-logo-body-font: "Inter", Arial, sans-serif;
+    --about-logo-ink: #101c2d;
+    --about-logo-muted: #5f6b7b;
+    --about-logo-blue: #0878e8;
+    --about-logo-gold: #f4b916;
+    --about-logo-line: #e5ebf2;
+    padding: clamp(4rem, 8vw, 7.5rem) 1.5rem;
+    color: var(--about-logo-ink);
+    font-family: var(--about-logo-body-font);
+    background:
+        radial-gradient(ellipse at 8% 7%, rgba(7, 120, 232, 0.07), transparent 32rem),
+        #f7f9fc;
+}
+
+.about-logo__container {
+    width: min(100%, 1160px);
+    margin: 0 auto;
+}
+
+.about-logo__intro {
+    max-width: 760px;
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+    text-align: center;
+}
+
+.about-logo__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0 0 1rem;
+    color: var(--about-logo-blue);
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.about-logo__eyebrow::before,
+.about-logo__eyebrow::after {
+    width: 1.5rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--about-logo-blue), var(--about-logo-gold));
+    content: "";
+}
+
+.about-logo__intro h2 {
+    margin: 0;
+    font-family: var(--about-logo-heading-font);
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 1.08;
+}
+
+.about-logo__intro h2,
+.about-logo__detail h3 {
+    font-family: var(--about-logo-heading-font);
+}
+
+.about-logo__intro h2 span {
+    display: block;
+    color: var(--about-logo-blue);
+}
+
+.about-logo__lead {
+    max-width: 660px;
+    margin: 1.35rem auto 0;
+    color: var(--about-logo-muted);
+    font-family: var(--about-logo-body-font);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.8;
+}
+
+.about-logo__content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    align-items: start;
+    gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.about-logo__visual {
+    position: sticky;
+    top: 2rem;
+    margin: 0;
+    padding: 0.85rem;
+    overflow: hidden;
+    border: 1px solid rgba(16, 28, 45, 0.07);
+    border-radius: 1.25rem;
+    background: #fff;
+    box-shadow: 0 24px 70px rgba(17, 38, 66, 0.12);
+}
+
+.about-logo__visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+}
+
+.about-logo__visual figcaption {
+    padding: 0.9rem 0.45rem 0.15rem;
+    color: var(--about-logo-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.about-logo__details {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-logo__detail {
+    display: grid;
+    grid-template-columns: 2.65rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.35rem 0;
+    border-bottom: 1px solid var(--about-logo-line);
+}
+
+.about-logo__detail:first-child {
+    padding-top: 0.4rem;
+}
+
+.about-logo__number {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border: 1px solid rgba(8, 120, 232, 0.18);
+    border-radius: 50%;
+    color: var(--about-logo-blue);
+    background: #fff;
+    font-size: 0.75rem;
+    font-weight: 750;
+}
+
+.about-logo__detail h3 {
+    margin: 0 0 0.45rem;
+    font-family: var(--about-logo-heading-font);
+    font-size: 1.08rem;
+    font-weight: 750;
+    letter-spacing: -0.015em;
+}
+
+.about-logo__detail p {
+    margin: 0;
+    color: var(--about-logo-muted);
+    font-family: var(--about-logo-body-font);
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+.about-logo__message {
+    position: relative;
+    margin-top: 1.6rem;
+    padding: 1.4rem 1.5rem 1.5rem;
+    overflow: hidden;
+    border-radius: 0.9rem;
+    color: #fff;
+    background: var(--about-logo-ink);
+}
+
+.about-logo__message::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(var(--about-logo-blue), var(--about-logo-gold));
+    content: "";
+}
+
+.about-logo__message-label {
+    color: #93c8ff;
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.about-logo__message p {
+    margin: 0.65rem 0 0;
+    font-family: var(--about-logo-body-font);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    font-weight: 750;
+    line-height: 1.45;
+}
+
+.about-logo__message p span {
+    color: #ffd044;
+}
+
+@media (max-width: 800px) {
+    .about-logo__intro h2 {
+        font-size: 30px;
+    }
+
+    .about-logo__lead,
+    .about-logo__detail p,
+    .about-logo__message p {
+        font-size: 18px;
+    }
+
+    .about-logo__content {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 640px;
+        margin: 0 auto;
+    }
+
+    .about-logo__visual {
+        position: static;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-logo {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .about-logo__visual {
+        padding: 0.55rem;
+        border-radius: 0.9rem;
+    }
+
+    .about-logo__detail {
+        grid-template-columns: 2.25rem minmax(0, 1fr);
+        gap: 0.75rem;
+    }
+
+    .about-logo__number {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+}

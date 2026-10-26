@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@500;700;800&display=swap");
+
+.hero-video {
+    position: relative;
+    display: grid;
+    min-height: 100vh;
+    min-height: 100svh;
+    place-items: center;
+    overflow: hidden;
+    isolation: isolate;
+    padding: 5rem 1.5rem;
+    color: #fff;
+    background: #091525;
+}
+
+.hero-video__background,
+.hero-video__scrim {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-video__background {
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-video__scrim {
+    background:
+        linear-gradient(90deg, rgba(5, 15, 31, 0.76), rgba(5, 15, 31, 0.38) 52%, rgba(5, 15, 31, 0.66)),
+        linear-gradient(0deg, rgba(5, 15, 31, 0.45), transparent 55%);
+}
+
+.hero-video__content {
+    width: min(100%, 1050px);
+    text-align: center;
+}
+
+.hero-video__eyebrow {
+    margin: 0 0 1.4rem;
+    color: #d8e8f9;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: clamp(0.72rem, 1.5vw, 0.9rem);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    line-height: 1.7;
+    text-transform: uppercase;
+}
+
+.hero-video__title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.15em 0.28em;
+    margin: 0;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: clamp(2.8rem, 8vw, 7rem);
+    font-weight: 800;
+    letter-spacing: -0.065em;
+    line-height: 0.98;
+    text-shadow: 0 4px 28px rgba(0, 0, 0, 0.3);
+}
+
+.hero-video__title-accent {
+    color: #ffc928;
+}
+
+.hero-video__description {
+    max-width: 680px;
+    margin: 1.7rem auto 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: "Inter", Arial, sans-serif;
+    font-size: clamp(1rem, 1.7vw, 1.15rem);
+    line-height: 1.7;
+    text-wrap: balance;
+}
+
+@media (max-width: 900px) {
+    .hero-video {
+        padding: 4rem 1.5rem;
+    }
+
+    .hero-video__content {
+        width: min(100%, 720px);
+    }
+
+    .hero-video__title {
+        font-size: 30px;
+    }
+
+    .hero-video__description {
+        margin-top: 1.25rem;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-video {
+        min-height: 36rem;
+        padding: 4rem 1.25rem;
+    }
+
+    .hero-video__eyebrow {
+        letter-spacing: 0.14em;
+    }
+
+    .hero-video__title {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.08em;
+        font-size: 30px;
+    }
+
+    .hero-video__description {
+        max-width: 36rem;
+        font-size: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-video__background {
+        display: none;
+    }
+}

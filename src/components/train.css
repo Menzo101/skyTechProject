@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@500;700;800&display=swap");
+
+.audience-section {
+    width: 100%;
+    margin-top: 70px;
+    background: #100d2d;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* height: 100vh; */
+    padding: 3rem 2rem;
+    color: white;
+    /* height: 100vh; */
+
+}
+
+.audience_title {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.audience_paragraph {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+.audience_lastText {
+    text-align: center;
+    line-height: 1.5;
+    font-size: 18px;
+    margin-top: 10px;
+    font-family: "Inter", Arial, sans-serif;
+    text-wrap: balance;
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    /* align-items: stretch; */
+}
+
+.audience-card {
+    position: relative;
+    min-width: 0;
+    background: #1d194b;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    top: 1rem;
+}
+
+.audience-image {
+    position: relative;
+    height: 130px;
+    width: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.audience-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(16, 13, 45, 0.04) 15%,
+            rgba(24, 20, 67, 0.48) 65%,
+            #1d194b 100%);
+}
+
+.audience-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.audience-card:hover .audience-image img {
+    transform: scale(1.04);
+}
+
+.audience-icon {
+    position: relative;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    margin: -25px 0 0 25px;
+    flex-shrink: 0;
+    border-radius: 19px;
+    background: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.audience-content {
+    padding: 30px 26px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.audience-content h2 {
+    /* margin: 0 0 16px; */
+    color: #f5f3ff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.7px;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+.audience-content p {
+    /* margin: 0 0 30px; */
+    color: #b9b6d7;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.audience-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    /* margin-top: auto; */
+    margin-top: 15px;
+    color: #5149c4;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color 0.25s ease;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.audience-link:hover {
+    color: #8e87ff;
+}
+
+.audience-arrow {
+    font-size: 16px;
+    transition: transform 0.25s ease;
+}
+
+.audience-link:hover .audience-arrow {
+    transform: translateX(5px);
+}
+
+/* Laptop and tablet */
+
+@media (max-width: 1200px) {
+    .audience-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+    }
+
+    .audience-content {
+        padding: 32px 28px;
+    }
+
+    .audience-content h2 {
+        font-size: 30px;
+    }
+
+    .audience-content p {
+        font-size: 18px;
+    }
+
+    .audience-icon {
+        margin-left: 28px;
+    }
+}
+
+@media (max-width: 900px) {
+    .audience-section {
+        margin-top: 40px;
+        padding: 2.5rem 1.5rem;
+    }
+
+    .audience_lastText br {
+        display: none;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 680px) {
+    .audience-section {
+        margin-top: 24px;
+        padding: 24px 16px 40px;
+    }
+
+    .audience_paragraph {
+        max-width: 34rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .audience-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .audience-card {
+        border-radius: 18px;
+        top: 0;
+    }
+
+    .audience-image {
+        height: clamp(160px, 48vw, 240px);
+    }
+
+    .audience-icon {
+        width: 76px;
+        height: 76px;
+        margin-top: -45px;
+        margin-left: 24px;
+        border-radius: 16px;
+        font-size: 27px;
+    }
+
+    .audience-content {
+        padding: 24px 20px 26px;
+    }
+
+    .audience-content h2 {
+        font-size: 30px;
+        margin-bottom: 12px;
+    }
+
+    .audience-content p {
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 22px;
+    }
+
+    .audience-link {
+        font-size: 18px;
+    }
+}
