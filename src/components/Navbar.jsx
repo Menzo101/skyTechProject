@@ -3,12 +3,14 @@ import "./navbar.css";
 import logoImage from "../assets/skyTechLogo2.png";
 
 const courseDepartments = [
-    { name: "Data", description: "Explore data courses", category: "data" },
-    { name: "Creative", description: "Explore creative courses", category: "creative" },
-    { name: "Business", description: "Explore business courses", category: "business" },
-    { name: "Artificial Intelligence", description: "Explore AI courses", category: "ai" },
-    { name: "Blockchain", description: "Explore blockchain courses", category: "blockchain" },
-    { name: "Cyber Security", description: "Explore cybersecurity courses", category: "cybersecurity" },
+    { name: "Design", description: "Explore design courses", category: "design" },
+    { name: "Film Making", description: "Explore film making courses", category: "film" },
+    { name: "Animations", description: "Explore animation courses", category: "animation" },
+    { name: "Web Management", description: "Explore web and digital courses", category: "web" },
+    { name: "Engineering", description: "Explore engineering software courses", category: "engineering" },
+    { name: "Office Suite", description: "Explore office software courses", category: "office" },
+    { name: "Programming", description: "Explore programming courses", category: "programming" },
+    { name: "Finance", description: "Explore finance courses", category: "finance" },
 ];
 
 const Navbar = () => {

@@ -189,6 +189,29 @@
     line-height: 1.65;
 }
 
+.course-registration-fee {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 8px;
+    background: #ffc928;
+    color: #171438;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.course-detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.course-registration-fee,
+.course-enquire {
+    padding: 14px 20px;
+}
+
 .course-card-link {
     display: inline-flex;
     align-items: center;
@@ -250,11 +273,34 @@
     line-height: 1.6;
 }
 
-.course-detail-meta {
-    gap: 12px 22px;
-    padding: 18px 0;
-    border-top: 1px solid #302b60;
-    border-bottom: 1px solid #302b60;
+.course-detail-copy .course-detail-section-title {
+    margin: 24px 0 10px;
+}
+
+.course-detail-facts {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+}
+
+.course-detail-facts div {
+    padding: 14px 16px;
+    border: 1px solid #302b60;
+    border-radius: 10px;
+    background: #171438;
+}
+
+.course-detail-facts dt {
+    margin-bottom: 5px;
+    color: #a49cff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.course-detail-facts dd {
+    margin: 0;
+    color: #cbc8e2;
+    line-height: 1.6;
 }
 
 .course-detail-description {
@@ -297,18 +343,127 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    margin-top: 28px;
-    padding: 14px 20px;
+    border: 0;
     border-radius: 9px;
     background: #5149c4;
     color: #ffffff;
+    cursor: pointer;
+    font: inherit;
     font-weight: 700;
-    text-decoration: none;
     transition: background 0.2s ease;
 }
 
 .course-enquire:hover {
     background: #6259d4;
+}
+
+.course-enquiry-overlay {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgba(5, 4, 20, 0.78);
+}
+
+.course-enquiry-modal {
+    position: relative;
+    width: min(100%, 520px);
+    max-height: 100%;
+    padding: 32px;
+    overflow-y: auto;
+    border: 1px solid #302b60;
+    border-radius: 18px;
+    background: #100d2d;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+}
+
+.course-enquiry-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid #302b60;
+    border-radius: 50%;
+    background: #171438;
+    color: #f7f6ff;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.course-enquiry-modal h2 {
+    margin: 10px 0;
+    color: #f7f6ff;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+.course-enquiry-modal > p {
+    margin: 0 0 22px;
+    color: #b9b6d7;
+    line-height: 1.6;
+}
+
+.course-enquiry-form {
+    display: grid;
+    gap: 16px;
+}
+
+.course-enquiry-form label {
+    display: grid;
+    gap: 7px;
+    color: #cbc8e2;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.course-enquiry-form input,
+.course-enquiry-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #403a75;
+    border-radius: 8px;
+    background: #171438;
+    color: #f7f6ff;
+    font: inherit;
+}
+
+.course-enquiry-form input:focus,
+.course-enquiry-form textarea:focus {
+    border-color: #a49cff;
+    outline: 2px solid #a49cff;
+    outline-offset: 2px;
+}
+
+.course-enquiry-form textarea {
+    resize: vertical;
+}
+
+.course-enquiry-submit {
+    justify-self: start;
+    padding: 13px 20px;
+    border: 0;
+    border-radius: 8px;
+    background: #ffc928;
+    color: #171438;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 800;
+}
+
+.course-enquiry-form small {
+    color: #b9b6d7;
+    line-height: 1.5;
+}
+
+.course-enquiry-close:focus-visible,
+.course-enquiry-submit:focus-visible {
+    outline: 3px solid #a49cff;
+    outline-offset: 3px;
 }
 
 .course-detail-image {
