@@ -181,7 +181,10 @@ export const Courses = () => {
     }, [isEnquiryOpen]);
 
     useEffect(() => {
-        const syncRoute = () => setActiveCourseSlug(getCourseSlug());
+        const syncRoute = () => {
+            setActiveCourseSlug(getCourseSlug());
+            setIsEnquiryOpen(false);
+        };
         window.addEventListener("popstate", syncRoute);
         return () => window.removeEventListener("popstate", syncRoute);
     }, []);
@@ -190,6 +193,7 @@ export const Courses = () => {
         const selectCategory = (event) => {
             setActiveCategory(event.detail);
             setActiveCourseSlug(null);
+            setIsEnquiryOpen(false);
         };
 
         window.addEventListener("skytech:course-category", selectCategory);
@@ -219,6 +223,12 @@ export const Courses = () => {
 
     const submitEnquiry = (event) => {
         event.preventDefault();
+        if (!activeCourse) {
+            setIsEnquiryOpen(false);
+            window.alert("This course is no longer available. Please select a course and try again.");
+            return;
+        }
+
         const formData = new FormData(event.currentTarget);
         const name = formData.get("name");
         const email = formData.get("email");
