@@ -488,6 +488,7 @@
 }
 
 .course-enquiry-form input,
+.course-enquiry-form select,
 .course-enquiry-form textarea {
     width: 100%;
     padding: 12px 14px;
@@ -499,6 +500,7 @@
 }
 
 .course-enquiry-form input:focus,
+.course-enquiry-form select:focus,
 .course-enquiry-form textarea:focus {
     border-color: #a49cff;
     outline: 2px solid #a49cff;

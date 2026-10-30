@@ -149,6 +149,8 @@ const courses = [
     ]),
 ];
 
+const enquiryCourseOptions = [...new Set(courses.map((course) => course.title))];
+
 const courseSchools = [
     {
         id: "data-ai",
@@ -274,10 +276,11 @@ export const Courses = ({ isFullPage = false }) => {
         const name = formData.get("name");
         const email = formData.get("email");
         const phone = formData.get("phone");
+        const interest = formData.get("interest") || "Not specified";
         const message = formData.get("message");
         const subject = encodeURIComponent(`Course enquiry: ${activeCourse.title}`);
         const body = encodeURIComponent(
-            `Course: ${activeCourse.title}\nName: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\n\nMessage:\n${message}`,
+            `Course: ${activeCourse.title}\nName: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\nInterest: ${interest}\n\nMessage:\n${message}`,
         );
 
         window.location.href = `mailto:Skytechfusion@gmail.com?subject=${subject}&body=${body}`;
@@ -483,6 +486,23 @@ export const Courses = ({ isFullPage = false }) => {
                             <label>
                                 Email address
                                 <input name="email" type="email" autoComplete="email" required />
+                            </label>
+                            <label>
+                                Course interest
+                                <select
+                                    name="interest"
+                                    defaultValue={activeCourse?.title ?? ""}
+                                    required
+                                >
+                                    <option value="" disabled>
+                                        Select a course
+                                    </option>
+                                    {enquiryCourseOptions.map((courseTitle) => (
+                                        <option key={courseTitle} value={courseTitle}>
+                                            {courseTitle}
+                                        </option>
+                                    ))}
+                                </select>
                             </label>
                             <label>
                                 Message

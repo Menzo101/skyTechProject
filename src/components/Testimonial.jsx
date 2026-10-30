@@ -3,25 +3,25 @@ import "./testimonial.css";
 const testimonials = [
     {
         quote:
-            "Sky Tech Fusion's Cyber Security programme is intense — but worth every kobo. I'm now a Security Engineer at MTN Nigeria, working on systems that protect millions of customers. The hands-on labs prepared me for the real world.",
+            "Sky Tech Fusion's Cyber Security programme is intense — but worth every kobo. The hands-on labs made the lessons practical, and I now feel more confident learning and applying real-world security skills.",
         name: "Ibrahim Yusuf",
-        role: "Security Engineer at MTN",
+        role: "Student Remark",
         initials: "IY",
         rating: 5,
     },
     {
         quote:
-            "I trained 22 engineers through Sky Tech Fusion's corporate programme. ROI was visible within 3 months — better code quality, faster delivery and happier devs. I recommend them to every CEO I meet.",
-        name: "Dr. Yemi Adesokan",
-        role: "CTO, Lagos Health Tech Startup",
+            "The lessons were clear, practical, and easy to follow. I gained more confidence in my tech skills and can now apply what I learned to real projects with much more ease.",
+        name: "Yemi Adesokan",
+        role: "Student Remark",
         initials: "YA",
         rating: 5,
     },
     {
         quote:
-            "I'm 19 and still in university. Sky Tech Fusion's evening classes fit perfectly with my schedule. By the time I graduate, I'll already have 2 years of paid freelance backend work under my belt. The platform pays for itself.",
+            "I'm still in school, but the evening classes fit perfectly with my schedule. The training is practical, motivating, and has already helped me improve my skills and build confidence for my future career.",
         name: "Blessing Okonkwo",
-        role: "Student, University of Lagos",
+        role: "Student Remark",
         initials: "BO",
         rating: 5,
     },

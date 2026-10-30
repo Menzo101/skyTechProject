@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import "./navbar.css";
 import logoImage from "../assets/skyTechLogo2.png";
 
@@ -89,17 +89,52 @@ const Navbar = () => {
     const [isCoursesOpen, setIsCoursesOpen] = useState(false);
     const [activeSchoolId, setActiveSchoolId] = useState(courseSchools[0].id);
     const activeSchool = courseSchools.find((school) => school.id === activeSchoolId);
+    const coursesMenuRef = useRef(null);
+    const closeCoursesTimerRef = useRef(null);
+
+    useEffect(() => {
+        if (!isCoursesOpen) {
+            return undefined;
+        }
+
+        const closeOnOutsideClick = (event) => {
+            if (!coursesMenuRef.current?.contains(event.target)) {
+                clearTimeout(closeCoursesTimerRef.current);
+                setIsCoursesOpen(false);
+            }
+        };
+        const closeOnEscape = (event) => {
+            if (event.key === "Escape") {
+                clearTimeout(closeCoursesTimerRef.current);
+                setIsCoursesOpen(false);
+            }
+        };
+
+        document.addEventListener("pointerdown", closeOnOutsideClick);
+        document.addEventListener("keydown", closeOnEscape);
+        return () => {
+            clearTimeout(closeCoursesTimerRef.current);
+            document.removeEventListener("pointerdown", closeOnOutsideClick);
+            document.removeEventListener("keydown", closeOnEscape);
+        };
+    }, [isCoursesOpen]);
+
+    const keepCoursesOpen = () => {
+        clearTimeout(closeCoursesTimerRef.current);
+        setIsCoursesOpen(true);
+    };
+    const scheduleCoursesClose = () => {
+        clearTimeout(closeCoursesTimerRef.current);
+        closeCoursesTimerRef.current = setTimeout(() => setIsCoursesOpen(false), 250);
+    };
 
     return (
         <>
             <header className="navbar">
                 {/* Logo */}
-                <div className='headinglogo'>
-
-                    <img src={logoImage} className="headinglogo" />
-
-
-                </div>
+                <a className="headinglogo" href="/#home" aria-label="Sky Tech Fusion home">
+                    <img src={logoImage} alt="Sky Tech Fusion" />
+                </a>
 
                 <button
                     type="button"
@@ -134,15 +169,16 @@ const Navbar = () => {
 
                     <div
                         className="courses-menu"
-                        onMouseEnter={() => setIsCoursesOpen(true)}
-                        onMouseLeave={() => setIsCoursesOpen(false)}
+                        ref={coursesMenuRef}
+                        onMouseEnter={keepCoursesOpen}
+                        onMouseLeave={scheduleCoursesClose}
                     >
                         <button
                             type="button"
                             className="nav-link courses-trigger"
                             aria-expanded={isCoursesOpen}
                             aria-controls="courses-dropdown"
-                            onClick={() => setIsCoursesOpen(true)}
+                            onClick={() => setIsCoursesOpen((open) => !open)}
                             onKeyDown={(event) => {
                                 if (event.key === "Escape") {
                                     setIsCoursesOpen(false);
@@ -154,7 +190,12 @@ const Navbar = () => {
                         </button>
 
                         {isCoursesOpen && (
-                            <div className="courses-dropdown" id="courses-dropdown">
+                            <div
+                                className="courses-dropdown"
+                                id="courses-dropdown"
+                                onMouseEnter={keepCoursesOpen}
+                                onMouseLeave={scheduleCoursesClose}
+                            >
                                 <div className="dropdown-heading">
                                     <span className="dropdown-label">OUR SCHOOLS</span>
                                     <h3>Find your area of study</h3>
