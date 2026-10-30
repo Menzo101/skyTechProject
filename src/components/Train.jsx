@@ -47,7 +47,7 @@ const audiences = [
 const Train = () => {
     return (
         <>
-            <section className="audience-section">
+            <section id="services" className="audience-section">
                 <p className='audience_title'>Who We Train</p>
                 <h2 className='audience_paragraph'>Tech training for everyone, everywhere in Africa</h2>
                 <p className='audience_lastText'>Whether you're an individual chasing a tech career, a school nurturing future innovators, or a company upskilling its workforce <br></br>we have a programme tailored for you.</p>

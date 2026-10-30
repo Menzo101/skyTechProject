@@ -24,7 +24,7 @@ function FooterColumn({ title, links }) {
 export const Footer = () => {
     return (
         <>
-            <footer className="footer">
+            <footer id="contact" className="footer">
                 <div className="footer-brand">
                     <div className="logo">
                         <img src={skyTechLogo} alt="Codar logo" />

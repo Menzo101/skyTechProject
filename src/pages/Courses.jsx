@@ -149,12 +149,64 @@ const courses = [
     ]),
 ];
 
+const courseSchools = [
+    {
+        id: "data-ai",
+        name: "School of Data & AI",
+        description: "Turn data and intelligent technologies into practical skills.",
+        categories: [],
+        courseSlugs: ["data-analysis-science", "artificial-intelligence", "machine-learning"],
+    },
+    {
+        id: "engineering",
+        name: "School of Engineering",
+        description: "Learn engineering design, robotics, and connected systems.",
+        categories: ["engineering"],
+        courseSlugs: ["robotics", "electronic-embedded-systems", "internet-of-things"],
+    },
+    {
+        id: "software",
+        name: "School of Software & Cybersecurity",
+        description: "Build software and learn to secure the systems behind it.",
+        categories: ["web"],
+        courseSlugs: [
+            "cybersecurity",
+            "cloud-computing-devops",
+            "game-development",
+            "automation",
+            "python-programming",
+            "java-programming",
+            "cpp-programming",
+            "other-programming-languages",
+        ],
+        excludedCourseSlugs: ["digital-marketing"],
+    },
+    {
+        id: "creative",
+        name: "School of Creative Media & Design",
+        description: "Create visual experiences across design, film, and animation.",
+        categories: ["design", "film", "animation"],
+        courseSlugs: [],
+    },
+    {
+        id: "business",
+        name: "School of Business & Finance",
+        description: "Develop practical business, productivity, and finance skills.",
+        categories: ["office", "finance"],
+        courseSlugs: ["digital-marketing", "virtual-assistant"],
+    },
+];
+
+const belongsToSchool = (course, school) =>
+    !school.excludedCourseSlugs?.includes(course.slug) &&
+    (school.categories.includes(course.category) || school.courseSlugs.includes(course.slug));
+
 function getCourseSlug() {
     const match = window.location.pathname.match(/\/courses\/([^/]+)\/?$/);
     return match?.[1] ?? null;
 }
 
-export const Courses = () => {
+export const Courses = ({ isFullPage = false }) => {
     const [activeCategory, setActiveCategory] = useState("all");
     const [activeCourseSlug, setActiveCourseSlug] = useState(getCourseSlug);
     const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
@@ -187,17 +239,6 @@ export const Courses = () => {
         };
         window.addEventListener("popstate", syncRoute);
         return () => window.removeEventListener("popstate", syncRoute);
-    }, []);
-
-    useEffect(() => {
-        const selectCategory = (event) => {
-            setActiveCategory(event.detail);
-            setActiveCourseSlug(null);
-            setIsEnquiryOpen(false);
-        };
-
-        window.addEventListener("skytech:course-category", selectCategory);
-        return () => window.removeEventListener("skytech:course-category", selectCategory);
     }, []);
 
     const activeCourse = courses.find((course) => course.slug === activeCourseSlug);
@@ -243,8 +284,34 @@ export const Courses = () => {
         setIsEnquiryOpen(false);
     };
 
+    const renderCourseCard = (course, index) => (
+        <a
+            className="course-card"
+            href={`/courses/${course.slug}`}
+            key={course.slug}
+            onClick={(event) => openCourse(event, course)}
+        >
+            <div className="course-card-image">
+                <img src={course.image} alt="" loading={index > 2 ? "lazy" : "eager"} />
+            </div>
+            <div className="course-card-content">
+                {course.duration && (
+                    <div className="course-meta">
+                        <span><FaClock aria-hidden="true" />{course.duration}</span>
+                    </div>
+                )}
+                <h3>{course.title}</h3>
+                <p>{course.summary}</p>
+                <span className="course-card-link">
+                    View course details
+                    <FaArrowRight aria-hidden="true" />
+                </span>
+            </div>
+        </a>
+    );
+
     return (
-        <section className="courses-section" id="courses" ref={sectionRef}>
+        <section className={`courses-section${isFullPage ? " courses-page" : ""}`} id="courses" ref={sectionRef}>
             <div className="courses-inner">
                 {activeCourse ? (
                     <article className="course-detail">
@@ -307,6 +374,45 @@ export const Courses = () => {
                             />
                         </div>
                     </article>
+                ) : isFullPage ? (
+                    <>
+                        <div className="courses-heading">
+                            <span className="course-eyebrow">OUR SCHOOLS</span>
+                            <h2>Explore our courses</h2>
+                            <p>Browse our schools and find the course that matches your goals.</p>
+                        </div>
+
+                        <nav className="course-school-nav" aria-label="Jump to a school">
+                            {courseSchools.map((school) => (
+                                <a key={school.id} href={`#course-school-${school.id}`}>
+                                    {school.name}
+                                    <span>
+                                        {courses.filter((course) => belongsToSchool(course, school)).length} courses
+                                    </span>
+                                </a>
+                            ))}
+                        </nav>
+
+                        {courseSchools.map((school) => {
+                            const schoolCourses = courses.filter((course) => belongsToSchool(course, school));
+                            return (
+                                <section
+                                    className="course-school-section"
+                                    id={`course-school-${school.id}`}
+                                    key={school.id}
+                                >
+                                    <header className="course-school-heading">
+                                        <span className="course-eyebrow">{schoolCourses.length} COURSES</span>
+                                        <h2>{school.name}</h2>
+                                        <p>{school.description}</p>
+                                    </header>
+                                    <div className="course-grid">
+                                        {schoolCourses.map(renderCourseCard)}
+                                    </div>
+                                </section>
+                            );
+                        })}
+                    </>
                 ) : (
                     <>
                         <div className="courses-heading">
@@ -330,31 +436,7 @@ export const Courses = () => {
                         </div>
 
                         <div className="course-grid" aria-live="polite">
-                            {visibleCourses.map((course, index) => (
-                                <a
-                                    className="course-card"
-                                    href={`/courses/${course.slug}`}
-                                    key={course.slug}
-                                    onClick={(event) => openCourse(event, course)}
-                                >
-                                    <div className="course-card-image">
-                                        <img src={course.image} alt="" loading={index > 2 ? "lazy" : "eager"} />
-                                    </div>
-                                    <div className="course-card-content">
-                                        {course.duration && (
-                                            <div className="course-meta">
-                                                <span><FaClock aria-hidden="true" />{course.duration}</span>
-                                            </div>
-                                        )}
-                                        <h3>{course.title}</h3>
-                                        <p>{course.summary}</p>
-                                        <span className="course-card-link">
-                                            View course details
-                                            <FaArrowRight aria-hidden="true" />
-                                        </span>
-                                    </div>
-                                </a>
-                            ))}
+                            {visibleCourses.map(renderCourseCard)}
                         </div>
                     </>
                 )}

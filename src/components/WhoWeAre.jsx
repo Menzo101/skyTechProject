@@ -4,7 +4,7 @@ import "./whoweare.css";
 export const WhoWeAre = () => {
     return (
         <>
-            <section className="about-section">
+            <section id="about" className="about-section">
                 <div className="about-container">
                     <span className="about-label">WHO WE ARE</span>
 

@@ -3,7 +3,7 @@ import heroVideo from "../assets/skytechfusionvideo.mp4";
 
 export const HeroVideoSection = () => {
     return (
-        <section className="hero-video" aria-labelledby="hero-video-title">
+        <section id="home" className="hero-video" aria-labelledby="hero-video-title">
             <video
                 className="hero-video__background"
                 autoPlay
@@ -18,7 +18,7 @@ export const HeroVideoSection = () => {
             <div className="hero-video__scrim" aria-hidden="true" />
 
             <div className="hero-video__content">
-                <p className="hero-video__eyebrow">Sky Tech Fusion · Technology Institute</p>
+                <p className="hero-video__eyebrow">Sky Tech Fusion Technology and Multimedia Institute</p>
                 <h1 id="hero-video-title" className="hero-video__title">
                     <span>Technology Skills</span>
                     <span className="hero-video__title-accent">for a Digital Future</span>

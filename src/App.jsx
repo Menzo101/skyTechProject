@@ -12,7 +12,19 @@ import AboutTheLogo from './components/AboutTheLogo'
 import { HeroVideoSection } from './components/HeroVideoSection'
 
 function App() {
+  const isCoursesPage = /^\/courses(?:\/|$)/.test(window.location.pathname)
 
+  if (isCoursesPage) {
+    return (
+      <>
+        <Navbar />
+        <main>
+          <Courses isFullPage />
+        </main>
+        <Footer />
+      </>
+    )
+  }
 
   return (
     <>
