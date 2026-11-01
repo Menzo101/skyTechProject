@@ -10,14 +10,12 @@ import artificialIntelligenceImage from "../assets/artificial-intelligence.jpg";
 import cloudComputingImage from "../assets/cloud-computing.jpg";
 import cybersecurityImage from "../assets/cybersecurity.jpg";
 import dataAnalysisImage from "../assets/data-analysis.jpg";
+import cinema4dImage from "../assets/cinema-4d.jpg";
 import graphicsDesignImage from "../assets/graphics-design.jpg";
 import machineLearningImage from "../assets/machine-learning.jpg";
-import motionGraphicsImage from "../assets/motion-graphics.jpg";
 import programmingImage from "../assets/programming.jpg";
 import uiUxImage from "../assets/ui-ux-design.jpg";
 import videoEditingImage from "../assets/video-editing.jpg";
-import cinema4dImage from "../assets/cinema-4d.jpg";
-import vfxImage from "../assets/vfx.jpg";
 import cinematographyImage from "../assets/cinematography.jpg";
 import photographyImage from "../assets/Photography.jpg";
 import dronePilotingImage from "../assets/drone-piloting.jpg";
@@ -28,6 +26,19 @@ import gameDevelopmentImage from "../assets/game-development.jpg";
 import virtualAssistantImage from "../assets/virtual-assistant.jpg";
 import forexImage from "../assets/forex.jpg";
 import cryptoImage from "../assets/crypto.jpg";
+import animationStudioImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.31 (1).jpeg";
+import animationClassroomImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.31.jpeg";
+import motionGraphicsWorkspaceImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.32 (1).jpeg";
+import cadModelingImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.32 (2).jpeg";
+import websiteDesignWorkspaceImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.33 (1).jpeg";
+import animationEditingImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.33.jpeg";
+import architectureDesignImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.34 (1).jpeg";
+import buildingInformationModelImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.34 (2).jpeg";
+import mobileAppDevelopmentImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.34.jpeg";
+import accountingPackagesImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.35.jpeg";
+import dataAnalysisWorkspaceImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.37.jpeg";
+import cppProgrammingImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.39 (1).jpeg";
+import twinmotionVisualizationImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.39.jpeg";
 
 const categories = [
     { id: "all", label: "All Courses" },
@@ -94,37 +105,37 @@ const courses = [
     ...createCourses("film", [
         ["video-editing-premiere-capcut", "Video Editing: Premiere Pro & CapCut", "3 months", videoEditingImage],
         ["video-editing-davinci", "Video Editing: DaVinci Resolve", "3 months", videoEditingImage],
-        ["motion-graphics-after-effects", "Motion Graphics: Adobe After Effects", "3 months", motionGraphicsImage],
+        ["motion-graphics-after-effects", "Motion Graphics: Adobe After Effects", "3 months", motionGraphicsWorkspaceImage],
         ["motion-graphics-cinema-4d", "Motion Graphics: Cinema 4D", "3 months", cinema4dImage],
         ["motion-graphics-after-effects-cinema-4d", "Motion Graphics: After Effects & Cinema 4D", "5 months", cinema4dImage],
-        ["visual-effects-vfx", "Visual Effects (VFX)", "5 months", vfxImage],
+        ["visual-effects-vfx", "Visual Effects (VFX)", "5 months", animationEditingImage],
         ["cinematography", "Cinematography", "4 months", cinematographyImage],
         ["photography", "Photography", "3 months", photographyImage],
         ["drone-piloting", "Drone Piloting", "2 months", dronePilotingImage],
     ]),
     ...createCourses("animation", [
-        ["3d-animation-basic", "3D Animation: Basic Class", "3 months", cinema4dImage],
-        ["3d-animation-advanced", "3D Animation: Advanced Class", "3 months", cinema4dImage],
-        ["3d-animation-basic-and-advanced", "3D Animation: Basic & Advanced Classes", "5 months", cinema4dImage],
-        ["2d-animation", "2D Animation", "4 months", motionGraphicsImage],
+        ["3d-animation-basic", "3D Animation: Basic Class", "3 months", animationClassroomImage],
+        ["3d-animation-advanced", "3D Animation: Advanced Class", "3 months", animationStudioImage],
+        ["3d-animation-basic-and-advanced", "3D Animation: Basic & Advanced Classes", "5 months", animationStudioImage],
+        ["2d-animation", "2D Animation", "4 months", animationEditingImage],
     ]),
     ...createCourses("web", [
-        ["website-design", "Website Design", "3 months", uiUxImage],
+        ["website-design", "Website Design", "3 months", websiteDesignWorkspaceImage],
         ["digital-marketing", "Digital Marketing", "3 months", dataAnalysisImage],
         ["full-stack-web-development", "Web Development: Front End, Back End & Full Stack", "5 months", programmingImage],
-        ["mobile-app-development", "Mobile App Development", "4 months", programmingImage],
+        ["mobile-app-development", "Mobile App Development", "4 months", mobileAppDevelopmentImage],
     ]),
     ...createCourses("engineering", [
-        ["autocad", "AutoCAD", "2 months", roboticsImage],
-        ["revit", "Revit", "2 months", roboticsImage],
-        ["sketchup", "SketchUp", "2 months", roboticsImage],
-        ["3ds-max", "3DS MAX", "2 months", roboticsImage],
-        ["twinmotion", "Twinmotion", "2 months", roboticsImage],
-        ["luminous", "Luminous", "2 months", roboticsImage],
+        ["autocad", "AutoCAD", "2 months", cadModelingImage],
+        ["revit", "Revit", "2 months", buildingInformationModelImage],
+        ["sketchup", "SketchUp", "2 months", cadModelingImage],
+        ["3ds-max", "3DS MAX", "2 months", architectureDesignImage],
+        ["twinmotion", "Twinmotion", "2 months", twinmotionVisualizationImage],
+        ["luminous", "Luminous", "2 months", twinmotionVisualizationImage],
     ]),
     ...createCourses("office", [
-        ["computer-appreciation-microsoft-suite", "Computer Appreciation & Microsoft Suite", "3 months", programmingImage],
-        ["accounting-packages", "Accounting Packages", "Negotiable", dataAnalysisImage],
+        ["computer-appreciation-microsoft-suite", "Computer Appreciation & Microsoft Suite", "3 months", dataAnalysisWorkspaceImage],
+        ["accounting-packages", "Accounting Packages", "Negotiable", accountingPackagesImage],
     ]),
     ...createCourses("programming", [
         ["cybersecurity", "Cybersecurity", undefined, cybersecurityImage],
@@ -140,7 +151,7 @@ const courses = [
         ["internet-of-things", "Internet of Things", undefined, iotImage],
         ["python-programming", "Python Programming", undefined, programmingImage],
         ["java-programming", "Java Programming", undefined, programmingImage],
-        ["cpp-programming", "C++ Programming", undefined, programmingImage],
+        ["cpp-programming", "C++ Programming", undefined, cppProgrammingImage],
         ["other-programming-languages", "Other Programming Languages", undefined, programmingImage],
     ]),
     ...createCourses("finance", [
@@ -264,7 +275,7 @@ export const Courses = ({ isFullPage = false }) => {
         setIsEnquiryOpen(false);
     };
 
-    const submitEnquiry = (event) => {
+    const submitEnquiry = async (event) => {
         event.preventDefault();
         if (!activeCourse) {
             setIsEnquiryOpen(false);
@@ -272,19 +283,28 @@ export const Courses = ({ isFullPage = false }) => {
             return;
         }
 
-        const formData = new FormData(event.currentTarget);
-        const name = formData.get("name");
-        const email = formData.get("email");
-        const phone = formData.get("phone");
-        const interest = formData.get("interest") || "Not specified";
-        const message = formData.get("message");
-        const subject = encodeURIComponent(`Course enquiry: ${activeCourse.title}`);
-        const body = encodeURIComponent(
-            `Course: ${activeCourse.title}\nName: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\nInterest: ${interest}\n\nMessage:\n${message}`,
-        );
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+        formData.set("course", activeCourse.title);
 
-        window.location.href = `mailto:Skytechfusion@gmail.com?subject=${subject}&body=${body}`;
-        setIsEnquiryOpen(false);
+        try {
+            const response = await fetch("https://formspree.io/f/mgaanqwq", {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" },
+            });
+
+            if (!response.ok) {
+                throw new Error(`Form submission failed with status ${response.status}`);
+            }
+
+            form.reset();
+            setIsEnquiryOpen(false);
+            window.alert("Thanks for reaching out! Our team will contact you soon.");
+        } catch (error) {
+            console.error("Unable to submit course enquiry:", error);
+            window.alert("We couldn't send your enquiry. Please try again.");
+        }
     };
 
     const renderCourseCard = (course, index) => (
