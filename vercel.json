@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/courses", "destination": "/index.html" },
+    { "source": "/courses/:path*", "destination": "/index.html" }
+  ]
+}
