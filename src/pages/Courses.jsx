@@ -26,6 +26,7 @@ import gameDevelopmentImage from "../assets/game-development.jpg";
 import virtualAssistantImage from "../assets/virtual-assistant.jpg";
 import forexImage from "../assets/forex.jpg";
 import cryptoImage from "../assets/crypto.jpg";
+import stockInvestmentImage from "../assets/stock-investment.jpg";
 import animationStudioImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.31 (1).jpeg";
 import animationClassroomImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.31.jpeg";
 import motionGraphicsWorkspaceImage from "../assets/WhatsApp Image 2026-10-30 at 12.09.32 (1).jpeg";
@@ -91,11 +92,36 @@ const createCourses = (category, entries) =>
     entries.map(([slug, title, duration, image]) => ({
         slug,
         title,
-        duration,
+        duration: coursePricing[slug]?.duration ?? duration,
+        price: coursePricing[slug]?.price,
         category,
         image,
         summary: `Develop practical skills in ${title} through focused training in ${categoryDetails[category].label.toLowerCase()}.`,
     }));
+
+const coursePricing = {
+    "data-analysis-science": { duration: "4 Months", price: 400000 },
+    "machine-learning": { duration: "4 Months", price: 400000 },
+    "artificial-intelligence": { duration: "3 Months", price: 500000 },
+    cybersecurity: { duration: "4 Months", price: 500000 },
+    "cloud-computing-devops": { duration: "4 Months", price: 500000 },
+    robotics: { duration: "4 Months", price: 500000 },
+    "internet-of-things": { duration: "3 Months", price: 300000 },
+    "electronic-embedded-systems": { duration: "4 Months", price: 400000 },
+    automation: { duration: "2 Months", price: 400000 },
+    "java-programming": { duration: "4 Months", price: 500000 },
+    "game-development": { duration: "4 Months", price: 500000 },
+    "python-programming": { duration: "4 Months", price: 400000 },
+    "cpp-programming": { duration: "4 Months", price: 500000 },
+    "javascript-programming": { duration: "3 Months", price: 300000 },
+    "mobile-app-development": { duration: "5 Months", price: 800000 },
+    "full-stack-web-development": { duration: "6 Months", price: 600000 },
+    "accounting-packages": { duration: "6 Weeks", price: 200000 },
+    "forex-courses": { duration: "6 Weeks", price: 300000 },
+    "virtual-assistant": { duration: "2 Months", price: 200000 },
+    "crypto-courses": { duration: "6 Weeks", price: 300000 },
+    "stock-market-investment": { duration: "6 Weeks", price: 300000 },
+};
 
 const courses = [
     ...createCourses("design", [
@@ -152,11 +178,13 @@ const courses = [
         ["python-programming", "Python Programming", undefined, programmingImage],
         ["java-programming", "Java Programming", undefined, programmingImage],
         ["cpp-programming", "C++ Programming", undefined, cppProgrammingImage],
+        ["javascript-programming", "JavaScript Programming", undefined, programmingImage],
         ["other-programming-languages", "Other Programming Languages", undefined, programmingImage],
     ]),
     ...createCourses("finance", [
-        ["forex-courses", "Forex Courses", undefined, forexImage],
-        ["crypto-courses", "Crypto Courses", undefined, cryptoImage],
+        ["forex-courses", "Forex Trading", undefined, forexImage],
+        ["crypto-courses", "Cryptocurrency & Blockchain", undefined, cryptoImage],
+        ["stock-market-investment", "Stock Market & Investment", undefined, stockInvestmentImage],
     ]),
 ];
 
@@ -190,6 +218,7 @@ const courseSchools = [
             "python-programming",
             "java-programming",
             "cpp-programming",
+            "javascript-programming",
             "other-programming-languages",
         ],
         excludedCourseSlugs: ["digital-marketing"],
@@ -316,13 +345,16 @@ export const Courses = ({ isFullPage = false }) => {
         >
             <div className="course-card-image">
                 <img src={course.image} alt="" loading={index > 2 ? "lazy" : "eager"} />
+                <span className="course-certificate-banner">Earn a certificate</span>
             </div>
             <div className="course-card-content">
-                {course.duration && (
-                    <div className="course-meta">
-                        <span><FaClock aria-hidden="true" />{course.duration}</span>
-                    </div>
-                )}
+                <div className="course-meta">
+                    <span><FaClock aria-hidden="true" />{course.duration ?? "Contact us to confirm the duration."}</span>
+                    {course.price && (
+                        <span>Recommended price: ₦{course.price.toLocaleString("en-NG")}</span>
+                    )}
+                    <span>Class schedule: Weekdays and weekends</span>
+                </div>
                 <h3>{course.title}</h3>
                 <p>{course.summary}</p>
                 <span className="course-card-link">
@@ -358,9 +390,15 @@ export const Courses = ({ isFullPage = false }) => {
                                         <dt>Duration</dt>
                                         <dd>{activeCourse.duration ?? "Contact us to confirm the duration."}</dd>
                                     </div>
+                                    {activeCourse.price && (
+                                        <div>
+                                            <dt>Recommended price</dt>
+                                            <dd>₦{activeCourse.price.toLocaleString("en-NG")}</dd>
+                                        </div>
+                                    )}
                                     <div>
                                         <dt>Class schedule</dt>
-                                        <dd>Contact us for class days, times, and the next start date.</dd>
+                                        <dd>Weekdays and weekends. Contact us for class times and the next start date.</dd>
                                     </div>
                                     <div>
                                         <dt>Training location</dt>
@@ -376,6 +414,9 @@ export const Courses = ({ isFullPage = false }) => {
                                 </dl>
 
                                 <div className="course-detail-actions">
+                                    <span className="course-certificate-button">
+                                        Earn a certificate
+                                    </span>
                                     <span className="course-registration-fee">
                                         Registration Fee: ₦10,000
                                     </span>

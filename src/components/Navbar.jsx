@@ -167,6 +167,10 @@ const Navbar = () => {
                         Services
                     </a>
 
+                    <a href="/blog" className="nav-link" onClick={() => setIsNavOpen(false)}>
+                        Blog
+                    </a>
+
                     <div
                         className="courses-menu"
                         ref={coursesMenuRef}

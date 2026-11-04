@@ -216,6 +216,21 @@
     font-weight: 800;
 }
 
+.course-certificate-banner {
+    position: absolute;
+    z-index: 1;
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: rgba(23, 20, 56, 0.9);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+}
+
 .course-card-content {
     padding: 24px 26px 27px;
 }
@@ -265,6 +280,16 @@
     font-weight: 800;
 }
 
+.course-certificate-button {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #8279f0;
+    border-radius: 8px;
+    color: #f7f6ff;
+    font-size: 14px;
+    font-weight: 800;
+}
+
 .course-detail-actions {
     display: flex;
     flex-wrap: wrap;
@@ -273,6 +298,7 @@
     margin-top: 18px;
 }
 
+.course-certificate-button,
 .course-registration-fee,
 .course-enquire {
     padding: 14px 20px;
@@ -468,7 +494,7 @@
     font-family: "Roboto", Arial, sans-serif;
 }
 
-.course-enquiry-modal > p {
+.course-enquiry-modal>p {
     margin: 0 0 22px;
     color: #b9b6d7;
     line-height: 1.6;
@@ -669,6 +695,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .course-card,
     .course-card-image img,
     .course-filter,
