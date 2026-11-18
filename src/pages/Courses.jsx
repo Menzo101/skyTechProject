@@ -350,9 +350,6 @@ export const Courses = ({ isFullPage = false }) => {
             <div className="course-card-content">
                 <div className="course-meta">
                     <span><FaClock aria-hidden="true" />{course.duration ?? "Contact us to confirm the duration."}</span>
-                    {course.price && (
-                        <span>Recommended price: ₦{course.price.toLocaleString("en-NG")}</span>
-                    )}
                     <span>Class schedule: Weekdays and weekends</span>
                 </div>
                 <h3>{course.title}</h3>
@@ -390,12 +387,6 @@ export const Courses = ({ isFullPage = false }) => {
                                         <dt>Duration</dt>
                                         <dd>{activeCourse.duration ?? "Contact us to confirm the duration."}</dd>
                                     </div>
-                                    {activeCourse.price && (
-                                        <div>
-                                            <dt>Recommended price</dt>
-                                            <dd>₦{activeCourse.price.toLocaleString("en-NG")}</dd>
-                                        </div>
-                                    )}
                                     <div>
                                         <dt>Class schedule</dt>
                                         <dd>Weekdays and weekends. Contact us for class times and the next start date.</dd>

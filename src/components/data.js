@@ -4,7 +4,9 @@ export const programLinks = [
     "Courses",
     "Bootcamps",
     "Online School",
-
+    "Hybrid Learning",
+    "Physical Classes",
+    "Private Mentorship",
 ];
 
 

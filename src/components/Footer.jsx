@@ -83,14 +83,22 @@ export const Footer = () => {
                     </ul>
                     <div className='mailUs_container'>
                         <span className='location-icon'><i className="fa-solid fa-envelope" /></span>
-
                         <span>Skytechfusion@gmail.com</span>
                     </div>
 
-
-
+                    <div className='phone_container'>
+                        <span className='location-icon'><i className="fa-solid fa-phone" /></span>
+                        <div className="phone_list">
+                            <a href="tel:+2349066476815">09066476815</a>
+                            <a href="tel:+2349167251069">09167251069</a>
+                        </div>
+                    </div>
                 </div>
 
+                <div className="footer-bottom">
+                    <span>© 2026 SkyTech Fusion.</span>
+                    <span>All Rights Reserved.</span>
+                </div>
             </footer >
         </>
     )
